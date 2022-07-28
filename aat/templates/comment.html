@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block header %}<h1>Comment</h1>{% endblock %}
+{% block content %}
+
+<div class="form">
+    <h3> Add comment </h3>
+    Name: <input type="text" id="name" class="textarea is-small" rows="1"/> <br /><br />
+    Title: <input type="text" id="title" class="textarea is-small" rows="1"/> <br /><br />
+    Body: <textarea name="name" rows="5" cols="30" id="bodyText" class="textarea"></textarea> <br /><br />
+    <input type="button" id="addComment" value="Add Comment" class="button"/>
+  </div>
+  
+  
+  <div id='container'>
+  
+   </div>
+{% endblock content %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>  
+        <script  src="{{ url_for('static', filename='javascript.js')}}"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <title>AAT</title>
+    </head>
+    <body>
+            <nav class="navbar">
+                <div class="navbar-menu">
+                    <!-- <div >
+                        <img alt="cardiff logo" src="{{ url_for('static', filename='img/cardiff.jpg') }}">
+                    </div> -->
+                    <div class="navbar-item">
+                        <div>
+                        <button class="button">
+                            <!-- <img src="{{ url_for('static', filename='img/activity.png') }}"> -->
+                            <a href="{{ url_for('activitystream') }}">Home </a>
+                        </div>
+                        </button>
+                        <div class="navbar-item">
+                            <button class="button">
+                            <!-- <img src="{{ url_for('static', filename='img/question.png') }}"> -->
+                            <a href="{{ url_for('question') }}">Questions</a>
+                        </div>
+                        </button>
+                        <div class="navbar-item">
+                            <button class="button">
+                            <!-- <img src="{{ url_for('static', filename='img/assessment.png') }}"> -->
+                            <a href="{{ url_for('assessment') }}">Assessment</a>
+                        </div>
+                    </button>
+                        <div>
+                            <div class="navbar-item">
+                                <button class="button">
+                            <!-- <img src="{{ url_for('static', filename='img/comment.png') }}"> -->
+                            <a href="{{ url_for('comment') }}">Comment</a>
+                        </div>
+                    </button>
+                    </div>
+                        <div>
+                            <div class="navbar-item">
+                                <button class="button">
+                            <a href="{{ url_for('logout') }}">Log out</a>
+                        </div>
+                        </div>
+                    </button>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="pagecontent">
+                <div class="container">
+                <header><h1>{% block header %}{% endblock %}</h1></header>
+                <hr>
+                <div class="flashedmsg">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <small class=flashes>
+                                {% for message in messages %}
+                                <p>{{ message }}</p>
+                                {% endfor %}
+                            </small>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="content">{% block content %}{% endblock %}</div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
+
